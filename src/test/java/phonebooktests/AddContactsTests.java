@@ -1,4 +1,4 @@
-package phonebooktest;
+package phonebooktests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,26 +12,26 @@ import java.util.List;
 public class AddContactsTests extends TestBase {
   @BeforeMethod
   public void ensurePrecondition() {
-    if (!isLoginLinkPresent()) {
-      clickOnSignButton();
+    if (!app.getUser().isLoginLinkPresent()) {
+      app.getUser().clickOnSignButton();
     }
-    clickOnLoginLink();
-    fillLoginRegistrationForm(new User().setEmail("tykhonenko@gmail.com").setPassword("R!q121212"));
-    click(By.name("login"));
+    app.getUser().clickOnLoginLink();
+    app.getUser().fillLoginRegistrationForm(new User().setEmail("tykhonenko@gmail.com").setPassword("R!q121212"));
+    app.getUser().click(By.name("login"));
 
   }
 
   @Test
   public void addContactPositiveTest() {
-    clickOnAddLink();
-    fillAddContactForm(new Contact()
+    app.getContact().clickOnAddLink();
+    app.getContact().fillAddContactForm(new Contact()
         .setName("Misha")
         .setLastName("Tykhonenko")
         .setPhone("1234567890")
         .setEmal("aaa@gmail.com")
         .setAddress("address")
         .setDescription("description"));
-    clickOnSaveButton();
+    app.getContact().clickOnSaveButton();
     Assert.assertTrue(isContactCreated("Misha"));
 
 
@@ -39,12 +39,12 @@ public class AddContactsTests extends TestBase {
 
   @AfterMethod
   public void removeContactItem(){
-    clickOnContactItem();
-    clickOnDeleteButton();
+    app.getContact().clickOnContactItem();
+    app.getContact().clickOnDeleteButton();
   }
 
   public boolean isContactCreated(String name) {
-    List<WebElement> contacts = driver.findElements(By.cssSelector("h2"));
+    List<WebElement> contacts = app.driver.findElements(By.cssSelector("h2"));
     for (WebElement element : contacts) {
       if (element.getText().contains(name)) {
         return true;

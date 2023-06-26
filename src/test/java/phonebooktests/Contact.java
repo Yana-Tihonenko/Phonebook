@@ -1,4 +1,4 @@
-package phonebooktest;
+package phonebooktests;
 
 public class Contact {
   private String name;
