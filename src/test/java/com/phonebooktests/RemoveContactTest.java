@@ -23,7 +23,7 @@ public class RemoveContactTest extends TestBase {
   }
 
   @Test
-  public void removeContactPositive() throws InterruptedException {
+  public void removeContactPositive() {
     if (!app.getContact().isPresentContactItems()) {
       app.getContact().clickOnAddLink();
       app.getContact().fillAddContactForm(new Contact()
