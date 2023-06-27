@@ -1,4 +1,4 @@
-package phonebooktests;
+package com.phonebooktests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

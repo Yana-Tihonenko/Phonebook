@@ -1,4 +1,4 @@
-package phonebooktests;
+package com.phonebook.fw;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -61,5 +61,13 @@ public class BaseHelper {
   public void  waitSeconds (int time){
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
+  }
+
+  public void pause(int milisecond)  {
+    try {
+      Thread.sleep(555);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
   }
 }

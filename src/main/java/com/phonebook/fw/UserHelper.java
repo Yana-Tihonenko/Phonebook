@@ -1,5 +1,6 @@
-package phonebooktests;
+package com.phonebook.fw;
 
+import com.phonebook.model.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -30,7 +31,7 @@ public class UserHelper extends BaseHelper{
     return isElement(By.cssSelector("[href='/login']"));
   }
 
-  protected void clickOnLoginLink() {
+  public void clickOnLoginLink() {
     click(By.cssSelector("[href='/login']"));
   }
 

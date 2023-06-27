@@ -1,4 +1,4 @@
-package phonebooktests;
+package com.phonebook.fw;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,7 +9,7 @@ import java.time.Duration;
 public class ApplicationManager {
 
   String browser;
-  WebDriver driver;
+  public WebDriver driver;
   UserHelper user;
   ContactHelper contact;
   HomePageHelper homePage;

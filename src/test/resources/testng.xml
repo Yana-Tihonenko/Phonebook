@@ -3,7 +3,7 @@
 <suite name="Smoky" verbose="1" >
     <test name="Smoky" >
         <classes>
-            <class name="phonebooktests.LoginTest" />
+            <class name="com.phonebooktests.LoginTest" />
         </classes>
     </test>
 

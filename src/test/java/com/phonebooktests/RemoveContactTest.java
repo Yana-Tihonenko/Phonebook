@@ -1,11 +1,12 @@
-package phonebooktests;
+package com.phonebooktests;
 
 
+import com.phonebook.model.Contact;
+import com.phonebook.model.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 
 
 public class RemoveContactTest extends TestBase {
@@ -22,7 +23,7 @@ public class RemoveContactTest extends TestBase {
   }
 
   @Test
-  public void removeContactPositive() {
+  public void removeContactPositive() throws InterruptedException {
     if (!app.getContact().isPresentContactItems()) {
       app.getContact().clickOnAddLink();
       app.getContact().fillAddContactForm(new Contact()
@@ -38,7 +39,7 @@ public class RemoveContactTest extends TestBase {
     int beforeCountContact = app.getContact().countContactFromList();
     app.getContact().clickOnContactItem();
     app.getContact().clickOnDeleteButton();
-    app.getAboutPageHelper().clickOnAboutLink(); // это костыль, чтобы номально отрендилась форма
+    app.getContact().pause(10);
     app.getContact().clickOnContactLink();
     int afterCountContact = app.getContact().countContactFromList();
     Assert.assertEquals(afterCountContact, beforeCountContact - 1);
