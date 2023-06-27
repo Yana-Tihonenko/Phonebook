@@ -63,9 +63,9 @@ public class BaseHelper {
 
   }
 
-  public void pause(int milisecond)  {
+  public void pause(int millisecond)  {
     try {
-      Thread.sleep(555);
+      Thread.sleep(millisecond);
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     }
