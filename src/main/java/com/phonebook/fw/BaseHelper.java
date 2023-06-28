@@ -58,10 +58,6 @@ public class BaseHelper {
     return true;
   }
 
-  public void  waitSeconds (int time){
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-
-  }
 
   public void pause(int millisecond)  {
     try {
