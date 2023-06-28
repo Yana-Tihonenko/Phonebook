@@ -58,6 +58,10 @@ public class BaseHelper {
     return true;
   }
 
+  public  void closeAlert(){
+    Alert alert = driver.switchTo().alert();
+    alert.accept();
+  }
 
   public void pause(int millisecond)  {
     try {
