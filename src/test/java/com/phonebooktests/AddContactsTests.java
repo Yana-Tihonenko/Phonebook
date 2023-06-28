@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 import java.util.List;
 
 
-public class  AddContactsTests extends TestBase {
+public class AddContactsTests extends TestBase {
   @BeforeMethod
   public void ensurePrecondition() {
     if (!app.getUser().isLoginLinkPresent()) {
@@ -57,20 +57,34 @@ public class  AddContactsTests extends TestBase {
 
   }
 
-
-  @Test(dataProvider = "addContactFromCsvFile", dataProviderClass = DataProviders.class)
+  @Test(dataProvider = "addContactFromCsvFilePositive", dataProviderClass = DataProviders.class)
   public void addContactDataProviderCsvFileTest(Contact contact) {
     app.getContact().clickOnAddLink();
     app.getContact().fillAddContactForm(contact);
     app.getContact().clickOnSaveButton();
+
+  }
+
+  @Test(dataProvider = "addContactFromCsvFileNegativePhone", dataProviderClass = DataProviders.class)
+  public void addContactDataProviderCsvFileNegativePhone(Contact contact) {
+    app.getContact().clickOnAddLink();
+    app.getContact().fillAddContactForm(contact);
+    app.getContact().clickOnSaveButton();
+    app.getContact().pause(200);
+    app.getContact().closeAlert();
+    app.getContact().clickOnContactLink();
+    app.getContact().pause(200);
+
 
 
   }
 
   @AfterMethod
   public void removeContactItem() {
-    app.getContact().clickOnContactItem();
-    app.getContact().clickOnDeleteButton();
+    if (!app.getContact().isPresentContactItems()) {
+      app.getContact().clickOnContactItem();
+      app.getContact().clickOnDeleteButton();
+    }
   }
 
   public boolean isContactCreated(String name) {
