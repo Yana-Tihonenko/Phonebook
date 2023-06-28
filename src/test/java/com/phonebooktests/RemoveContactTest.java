@@ -35,11 +35,10 @@ public class RemoveContactTest extends TestBase {
           .setDescription("description"));
       app.getContact().clickOnSaveButton();
     }
-    app.getContact().waitSeconds(10);
     int beforeCountContact = app.getContact().countContactFromList();
     app.getContact().clickOnContactItem();
     app.getContact().clickOnDeleteButton();
-    app.getContact().pause(10);
+    app.getContact().pause(1000);
     app.getContact().clickOnContactLink();
     int afterCountContact = app.getContact().countContactFromList();
     Assert.assertEquals(afterCountContact, beforeCountContact - 1);
