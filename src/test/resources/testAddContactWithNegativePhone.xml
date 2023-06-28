@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="testAddContactWithNegativePhone" verbose="1">
+    <test name="testAddContactWithNegativePhone">
+        <classes>
+            <class name="com.phonebooktests.AddContactsTests">
+                <methods>
+                    <include name="addContactDataProviderCsvFileNegativePhone" />
+                </methods>
+            </class>
+        </classes>
+
+
+    </test>
+</suite>
