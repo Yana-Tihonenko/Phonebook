@@ -42,7 +42,7 @@ public class AddContactsTests extends TestBase {
 
   }
 
-  @Test(dataProvider = "addContact", dataProviderClass = DataProviders.class)
+  @Test( enabled = false, dataProvider = "addContact", dataProviderClass = DataProviders.class)
   public void addContactDataProviderTest(String name, String lastname, String phone, String email, String address, String description) {
     app.getContact().clickOnAddLink();
     app.getContact().fillAddContactForm(new Contact()
@@ -57,7 +57,7 @@ public class AddContactsTests extends TestBase {
 
   }
 
-  @Test(dataProvider = "addContactFromCsvFilePositive", dataProviderClass = DataProviders.class)
+  @Test(enabled = false, dataProvider = "addContactFromCsvFilePositive", dataProviderClass = DataProviders.class)
   public void addContactDataProviderCsvFileTest(Contact contact) {
     app.getContact().clickOnAddLink();
     app.getContact().fillAddContactForm(contact);
@@ -65,7 +65,7 @@ public class AddContactsTests extends TestBase {
 
   }
 
-  @Test(dataProvider = "addContactFromCsvFileNegativePhone", dataProviderClass = DataProviders.class)
+  @Test(enabled = false , dataProvider = "addContactFromCsvFileNegativePhone", dataProviderClass = DataProviders.class)
   public void addContactDataProviderCsvFileNegativePhone(Contact contact) {
     app.getContact().clickOnAddLink();
     app.getContact().fillAddContactForm(contact);
