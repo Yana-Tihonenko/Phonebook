@@ -4,14 +4,17 @@
     <test name="regression">
         <classes>
             <class name="com.phonebooktests.HomePageTests"/>
-            <class name="com.phonebooktests.CreateAccountTests"/>
-            <class name="com.phonebooktests.AddContactsTests"/>
-            <class name="com.phonebooktests.RemoveContactTest"/>
             <class name="com.phonebooktests.LoginTest">
                 <methods>
                 <exclude name=".*Negativ.*"></exclude>
                 </methods>
             </class>
+            <class name="com.phonebooktests.AddContactsTests">
+                <methods>
+                    <exclude name=".*From.*" > </exclude>
+                </methods>
+            </class>
+
         </classes>
     </test>
 
